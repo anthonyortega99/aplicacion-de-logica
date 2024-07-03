@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LógicaClásica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="start-screen" class="screen">
+        <h1>LógicaClásica</h1>
+        <button class="animated-button" onclick="startGame()">Iniciar Juego</button>
+        <button class="animated-button" onclick="showSettings()">Configuración</button>
+        <button class="animated-button" onclick="showInstructions()">Instrucciones</button>
+        <button class="animated-button" id="juego-memoria" onclick="window.location.href='https://tan-aurore-9.tiiny.site'">Juego de Memoria</button> <!-- Botón añadido -->
+    </div>
+    <div id="game-screen" class="screen" style="display: none;">
+        <div class="toolbar">
+            <button class="animated-button" onclick="resetGame()">Reiniciar</button>
+            <button class="animated-button" onclick="pauseGame()">Pausa</button>
+            <button class="animated-button" onclick="exitGame()">Salir</button>
+        </div>
+        <div id="puzzle-area"></div>
+        <div id="feedback"></div>
+        <div id="progress">Progreso: <span id="progress-value">0%</span></div>
+        <div id="score">Puntaje: <span id="score-value">0</span></div>
+        <div id="timer" style="display: none;">Tiempo restante: <span id="time-value"></span></div>
+    </div>
+    <div id="settings-screen" class="screen" style="display: none;">
+        <h2>Configuración</h2>
+        <label for="difficulty">Nivel de dificultad:</label>
+        <select id="difficulty">
+            <option value="easy">Fácil</option>
+            <option value="medium">Medio</option>
+            <option value="hard">Difícil</option>
+        </select>
+        <br>
+        <label for="music-volume">Volumen de la música:</label>
+        <input type="range" id="music-volume" min="0" max="100" value="50">
+        <br>
+        <label for="sfx-volume">Volumen de efectos de sonido:</label>
+        <input type="range" id="sfx-volume" min="0" max="100" value="50">
+        <br>
+        <label for="timer-enabled">Activar cronómetro:</label>
+        <input type="checkbox" id="timer-enabled">
+        <br>
+        <label for="timer-duration">Duración del cronómetro (minutos):</label>
+        <input type="number" id="timer-duration" min="1" max="60" value="5">
+        <br>
+        <button class="animated-button" onclick="saveSettings()">Guardar</button>
+        <button class="animated-button" onclick="cancelSettings()">Cancelar</button>
+    </div>
+    <div id="instructions-screen" class="screen" style="display: none;">
+        <h2>Instrucciones</h2>
+        <p>Bienvenido a LógicaClásica. Aquí tienes las instrucciones para jugar:</p>
+        <ol class="instructions-list">
+            <li>Haz clic en "Iniciar Juego" para comenzar.</li>
+            <li>Lee atentamente cada acertijo y selecciona la respuesta correcta.</li>
+            <li>Recibirás retroalimentación inmediata después de enviar tu respuesta.</li>
+            <li>Ganarás 10 puntos por cada respuesta correcta.</li>
+            <li>El progreso del juego y tu puntaje se mostrarán en la pantalla.</li>
+            <li>Puedes pausar el juego en cualquier momento haciendo clic en "Pausa".</li>
+            <li>Para reiniciar el juego, haz clic en "Reiniciar".</li>
+            <li>Para salir del juego y regresar al menú principal, haz clic en "Salir".</li>
+            <li>Configura el nivel de dificultad, los volúmenes de música y efectos de sonido, y el cronómetro en la sección de Configuración.</li>
+        </ol>
+        <button class="animated-button" onclick="goBack()">Volver</button>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
